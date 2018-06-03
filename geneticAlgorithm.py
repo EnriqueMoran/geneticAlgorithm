@@ -7,7 +7,7 @@ class GA():
 
     __author__: "EnriqueMoran"
 
-    def __init__(self, population_size,  chromosome_len, mutation_prob, crossover_prob, max_generations, fitness_function, tournament_elements = None, **kwargs):
+    def __init__(self, population_size,  chromosome_len, mutation_prob, crossover_prob, max_generations, fitness_function = None, tournament_elements = None, **kwargs):
         self.population_size = population_size
         self.chromosome_len = chromosome_len
         self.mutation_prob = mutation_prob

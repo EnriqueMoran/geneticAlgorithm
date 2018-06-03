@@ -89,4 +89,6 @@ genetic5.fitnessPlot()
 
 ## Errors
 
-There is a couple of errors related to randomized generation of initial population and parent selection. If any of this errors occurs, just rerun the algorithm
+There is a couple of errors related to randomized generation of initial population and parent selection. If any of this errors occurs, just rerun the algorithm.
+Average fitness recording seems to be bugged.
+

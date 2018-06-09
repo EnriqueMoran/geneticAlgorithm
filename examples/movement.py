@@ -107,8 +107,6 @@ if __name__ == "__main__":
         return res
 
     objective_list = generateObjectives(2)    # Generate two random objectives
-    print(objective_list)
-    objective_list = {(418, 229): False, (184, 88): False}
 
     test = Test(display_width, display_heigth, fps, initial_x, initial_y, speed, objective_list)    # Instanciate test
     test.initialize()    # Load test parameters
@@ -151,16 +149,12 @@ if __name__ == "__main__":
                         res += (constant / (distance(test.triangle_x, test.triangle_y, objective[0], objective[1]) + 0.00000001)) / cont
         return res
 
-    #genetic.fitness = fitness
+    genetic.fitness = fitness
     t0 = time.time()
-    #movement_list = genetic.solve()
+    movement_list = genetic.solve()
     t1 = time.time()
 
-    #print("\nSolution: ", movement_list, " fitness: ", str(genetic.fitness(movement_list)), " algorithm took ", str(t1 - t0), " seconds.")
-
-    movement_list = [42, 27, 47, 336, 76, 314, 62, 283, 80, 27, 27, 27, 47, 27, 62, 342, 27, 27, 277, 87, 0, 27, 104, 105, 27, 33, 355, 29, 29, 53]
-
-    #movement_list = 
+    print("\nSolution: ", movement_list, " fitness: ", str(genetic.fitness(movement_list)), " algorithm took ", str(t1 - t0), " seconds.")
 
     try:
         test.run(movement_list)    # Press ESC to exit and show fitness chart

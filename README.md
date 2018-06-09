@@ -98,7 +98,7 @@ _in order to run the examples, dont forget to place geneticAlgorithm.py in the s
 **simple:** Collection of genetic instantiation examples and simple list sorting using the algorithm.
 
 **movement:** This example shows how the algorithm calculates a path (secuence of angles) to pass through a set of selected points.
-The triangle will move forwards depending on the given angle, when the triangle hits one of the selected points, this will change the color.
+The triangle will move forwards depending on the given angle, when the triangle hits one of the selected points, this will change the color. (_pygame_ library needed)
 
 ![alt tag](https://i.gyazo.com/05dd628161af194cc95beff8ac641447.gif)
 

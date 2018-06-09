@@ -75,6 +75,7 @@ genetic5.fitness = fitness_example
 
 For using the algorithm and show fitness value chart, use **.solve()** and **.fitnessPlot()** methods:
 
+
 ```
 sol = genetic5.solve()
 print("\nSolution: ", sol, " fitness: ", str(genetic5.fitness(sol)))
@@ -85,4 +86,20 @@ genetic5.fitnessPlot()
 ## Output
 
 ![alt tag](https://i.gyazo.com/1204645be38f2845dac137b70f19d6ed.png)
+
+
+
+## Examples
+
+The _example_ folder contains several files with different examples of ussage for this algorithm.
+
+_in order to run the examples, dont forget to place geneticAlgorithm.py in the same folder as examples_
+
+**simple:** Collection of genetic instantiation examples and simple list sorting using the algorithm.
+
+**movement:** This example shows how the algorithm calculates a path (secuence of angles) to pass through a set of selected points.
+The triangle will move forwards depending on the given angle, when the triangle hits one of the selected points, this will change the color.
+
+![alt tag](https://i.gyazo.com/05dd628161af194cc95beff8ac641447.gif)
+
 

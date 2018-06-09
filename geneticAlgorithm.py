@@ -7,21 +7,21 @@ class GA():
 
     __author__: "EnriqueMoran"
 
-    def __init__(self, population_size,  chromosome_len, mutation_prob, crossover_prob, max_generations, fitness_function = None, tournament_elements = None, **kwargs):
+    def __init__(self, population_size,  chromosome_len, mutation_prob, crossover_prob, max_generations, tournament_elements = None, **kwargs):
         self.population_size = population_size
         self.chromosome_len = chromosome_len
         self.mutation_prob = mutation_prob
         self.crossover_prob = crossover_prob
         self.max_generations = max_generations
-        self.fitness_function = fitness_function
+        self.fitness_function = None
         self.tournament_elements = tournament_elements    # K for tournament selection (value between 0.1 and 1)
         self.crossover_policy = kwargs.get('crossover_policy')    # Values: "point_crossover", "multi_crossover", "uniform_crossover"
         self.mutation_policy = kwargs.get('mutation_policy')    # Values "swap_mutation", "scramble_mutation", "inversion_mutation"
         self.fitness_registration = []    # List used for show fitness per generation chart
         self.bestChromosome_ever = []    # Register best chromosome over generations
 
-        if self.tournament_elements == None:
-            self.tournament_elements = random.uniform(0.1, 1.0)
+        if self.tournament_elements == None or self.tournament_elements <= 0.4 or self.tournament_elements > 1:    # Tournament elements must be between (0.4 and 1)
+            self.tournament_elements = 0.4
         if self.crossover_policy == None:
             self.crossover_policy = "point_crossover"    # Default policy
         if self.mutation_policy == None:
@@ -132,7 +132,7 @@ class GA():
         res = 0
         for chromosome in population:
             res += self.fitness(chromosome)
-        return int(res / self.chromosome_len)
+        return round((res / len(population)), 3)
 
 
     def nextGeneration(self, population):
@@ -182,6 +182,7 @@ class GA():
                 if self.fitness(self.bestChromosome_ever) <= self.fitness(self.getBestChromosome(current_population)):
                     self.bestChromosome_ever = self.getBestChromosome(current_population)
             print("Generation: ", i, " Average fitness: ", self.getAverageFitness(current_population), "  best chromosome: ", self.getBestChromosome(current_population), " fitness: ", self.fitness(self.getBestChromosome(current_population)))
+            #print("Generation: ", i, " Average fitness: ", self.getAverageFitness(current_population), " fitness: ", self.fitness(self.getBestChromosome(current_population)))
         return self.bestChromosome_ever
 
 
